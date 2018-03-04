@@ -1,0 +1,26 @@
+<a href="" [routerLink]="['/dashboard']">home</a>
+|
+<a href="" [routerLink]="['/index']">logout</a>
+<h1>new question</h1>
+<form method="POST" (submit)="create()">
+  question:
+  <input
+    type="text"
+    name="title"
+    required
+    minlength="10"
+    [(ngModel)]="question.title"
+    #title="ngModel"
+  >
+  <p *ngIf="title.errors">
+    question must be at least 10 chars
+  </p>
+  description:
+  <input
+    type="text"
+    name="description"
+    [(ngModel)]="question.description"
+  >
+  <br>
+  <input *ngIf="!title.errors" type="submit" value="add">
+</form>

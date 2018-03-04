@@ -1,0 +1,26 @@
+<h1>welcome {{user.name}}</h1>
+<a href="" [routerLink]="['/new_question']">add a question</a>
+|
+<a href="" [routerLink]="['/index']">logout</a>
+<fieldset>
+  <legend>search</legend>
+  <input #box (keyup)="search(box.value)">
+</fieldset>
+<fieldset>
+  <legend>questions</legend>
+  <table>
+    <tr>
+      <th>question</th>
+      <th>num answers</th>
+      <th>actions</th>
+    </tr>
+    <tr *ngFor="let q of questions">
+      <td>{{q.title}}</td>
+      <td>{{q.answers.length}}</td>
+      <td>
+        <a href="" [routerLink]="['/questions', q._id]">show</a>
+        |
+        <a href="" [routerLink]="['/questions', q._id, 'new_answer']">answer</a></td>
+    </tr>
+  </table>
+</fieldset>

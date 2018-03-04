@@ -1,0 +1,13 @@
+<fieldset>
+  <legend>login</legend>
+  <form method="POST" (submit)="login()">
+    name: <input
+      type="text"
+      name="name"
+      required
+      [(ngModel)]="user.name"
+      #name="ngModel">
+      <p *ngIf="name.errors">name required</p>
+    <input *ngIf="!name.errors" type="submit" value="login">
+  </form>
+</fieldset>

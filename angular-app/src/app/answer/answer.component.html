@@ -1,0 +1,32 @@
+<a href="" [routerLink]="['/dashboard']">home</a>
+|
+<a href="" [routerLink]="['/questions', question._id]">go to question</a>
+|
+<a href="" [routerLink]="['/index']">logout</a>
+<h1>{{question.title}}</h1>
+<h4>{{question.description}}</h4>
+<fieldset>
+  <legend>answer</legend>
+  <form method="POST" (submit)="create(question._id)">
+  answer:
+  <input
+    type="text"
+    name="title"
+    required
+    minlength="5"
+    [(ngModel)]="answer.title"
+    #title="ngModel"
+  >
+  <p *ngIf="title.errors">
+    answer must be at least 5 chars
+  </p>
+  details:
+  <input
+    type="text"
+    name="description"
+    [(ngModel)]="answer.description"
+  >
+  <br>
+  <input *ngIf="!title.errors" type="submit" value="add">
+  </form>
+</fieldset>
